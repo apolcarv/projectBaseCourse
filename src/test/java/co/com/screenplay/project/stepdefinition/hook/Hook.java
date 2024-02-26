@@ -24,13 +24,13 @@ public class Hook {
     @Given("{string} abre el sitio web de pruebas")
     public void openTheTestWebsite(String actor) {
         OnStage.theActorCalled(actor).attemptsTo(
-                OpenWeb.browserURL(WEB_URL)
+                OpenWeb.browserURL(WEB_URL_MAP)
         );
         waiting(TIME_SHORT);
         theActorInTheSpotlight().should(
                 GivenWhenThen.seeThat(
                         TheWebPage.title(),
-                        Matchers.containsString(TITLE)
+                        Matchers.containsString(TITLE_WEBSITE)
                 )
         );
     }
